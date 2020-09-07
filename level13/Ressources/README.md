@@ -1,13 +1,13 @@
 # level13
 
+The home directory only contains an executable: `level13`.
+
 Decompilation shows:
 
 ```C
   _Var1 = getuid();
   if (_Var1 != 0x1092) {
-    _Var1 = getuid();
     printf("UID %d started us but we we expect %d\n",_Var1,0x1092);
-                    /* WARNING: Subroutine does not return */
     exit(1);
   }
   uVar2 = ft_des("boe]!ai0FB@.:|L6l@A?>qJ}I");

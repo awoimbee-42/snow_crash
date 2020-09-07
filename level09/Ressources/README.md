@@ -22,4 +22,4 @@ The encoding is easy, it increments every char by its position in the string.
  |   a       b       c       d       e   |
  |_______________________________________|
 
-Use `decrypt.py` on `token`.
+Use `decrypt.py` on `token` -> `f3iji1ju5yuevaus41q1afiuq`

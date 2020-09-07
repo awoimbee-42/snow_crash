@@ -11,7 +11,6 @@ with open(sys.argv[1], 'rb') as tf:
 	decrypted = [];
 	for i, c in enumerate(encrypted):
 		if i == 25:
-			print(f"For some reason, char {c} at pos {i} is broken")
-			continue
+			continue # For some reason, the last char (at pos 25) is broken
 		decrypted.append(chr(c - i))
 	print(''.join(decrypted))

