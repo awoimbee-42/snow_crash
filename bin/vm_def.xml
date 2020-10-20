@@ -1,9 +1,9 @@
 <domain type="kvm">
   <name>snow_crash</name>
   <uuid>ebf7c762-31c0-4dc7-af96-225b78b0628e</uuid>
-  <memory unit="KiB">1078272</memory>
-  <currentMemory unit="KiB">1078272</currentMemory>
-  <vcpu placement="static">2</vcpu>
+  <memory unit="MiB">512</memory>
+  <currentMemory unit="MiB">512</currentMemory>
+  <vcpu placement="static">1</vcpu>
   <os>
     <type arch="x86_64" machine="pc-i440fx-5.0">hvm</type>
     <boot dev="hd"/>
