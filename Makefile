@@ -1,15 +1,17 @@
 SHELL := /bin/bash
 .DEFAULT_GOAL = help
 
-GRN := $(shell command -v tput >/dev/null 2>&1 && tput -Txterm setaf 2 || echo "")
-YLW := $(shell command -v tput >/dev/null 2>&1 && tput -Txterm setaf 3 || echo "")
-RED := $(shell command -v tput >/dev/null 2>&1 && tput -Txterm setaf 1 || echo "")
-RST := $(shell command -v tput >/dev/null 2>&1 && tput -Txterm sgr0 || echo "")
+NAME := snow_crash
 
-ifeq ($(shell command -v virsh),)
+GRN := $(shell tput -Txterm setaf 2 2>/dev/null || echo "")
+YLW := $(shell tput -Txterm setaf 3 2>/dev/null || echo "")
+RED := $(shell tput -Txterm setaf 1 2>/dev/null || echo "")
+RST := $(shell tput -Txterm sgr0 2>/dev/null || echo "")
+
+ifeq ($(shell PATH="/usr/sbin:$$PATH" command -v virsh),)
 $(info $(RED) /!\ virsh is required to run the VM $(RST))
 endif
-ifneq ($(shell command -v dnsmasq ebtables | wc -l),2)
+ifneq ($(shell PATH="/usr/sbin:$$PATH" command -v dnsmasq ebtables | wc -l),2)
 $(info $(RED) /!\ dnsmasq & ebtables are required to setup the network $(RST))
 endif
 
@@ -31,16 +33,13 @@ ip: ## Prints the ip
 
 stop: shutdown ## Shutdown alias
 
-shutdown: shutdown-hard ## Shutdown and delete vm
-	sudo virsh destroy snow_crash
+shutdown: ## Shutdown and delete vm
+	sudo virsh destroy snow_crash || true
 
 list-vm: ## See if the vm is running
 	sudo virsh list --all
 
 network: ## Can fix network issues with the VM
-	@command -V dnsmasq
-	@command -V ebtables
-	@command -V virsh
 	if [ "$$(sudo virsh net-list | grep default)" ]; then \
 		echo 'Nothing to be done here !'; \
 	else \
